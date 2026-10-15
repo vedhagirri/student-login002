@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form | Selenium Practice</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div><strong>StudentLab</strong><small>Selenium practice</small></div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <button class="nav-group" type="button" data-toggle="elements">
+          <span class="nav-icon">▤</span><span>Elements</span><span class="chevron">⌄</span>
+        </button>
+        <div class="nav-children hidden" id="elements-menu">
+          <button class="nav-item" type="button" data-page="Text Box">Text Box</button>
+          <button class="nav-item" type="button" data-page="Buttons">Buttons</button>
+        </div>
+
+        <button class="nav-group active-group" type="button" data-toggle="forms">
+          <span class="nav-icon">▣</span><span>Forms</span><span class="chevron">⌃</span>
+        </button>
+        <div class="nav-children" id="forms-menu">
+          <button class="nav-item active" type="button" data-page="Practice Form">▤ <span>Practice Form</span></button>
+          <button class="nav-item" type="button" data-page="Login">♙ <span>Login</span></button>
+          <button class="nav-item" type="button" data-page="Register">♧ <span>Register</span></button>
+        </div>
+
+        <button class="nav-group" type="button" data-toggle="alerts">
+          <span class="nav-icon">♧</span><span>Alerts, Frames &amp; Windows</span><span class="chevron">⌄</span>
+        </button>
+        <div class="nav-children hidden" id="alerts-menu">
+          <button class="nav-item" type="button" data-page="Alerts">Alerts</button>
+          <button class="nav-item" type="button" data-page="Frames">Frames</button>
+          <button class="nav-item" type="button" data-page="Windows">Windows</button>
+        </div>
+
+        <button class="nav-group" type="button" data-toggle="widgets">
+          <span class="nav-icon">▦</span><span>Widgets</span><span class="chevron">⌄</span>
+        </button>
+        <div class="nav-children hidden" id="widgets-menu">
+          <button class="nav-item" type="button" data-page="Date Picker">Date Picker</button>
+          <button class="nav-item" type="button" data-page="Dropdown">Dropdown</button>
+        </div>
+
+        <button class="nav-group" type="button" data-toggle="interaction">
+          <span class="nav-icon">➤</span><span>Interaction</span><span class="chevron">⌄</span>
+        </button>
+        <div class="nav-children hidden" id="interaction-menu">
+          <button class="nav-item" type="button" data-page="Sortable">Sortable</button>
+          <button class="nav-item" type="button" data-page="Selectable">Selectable</button>
+        </div>
+      </nav>
+
+      <div class="sidebar-footer"><span class="status-dot"></span> Practice environment <span class="version">v1.0</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">FORMS / PRACTICE</p>
+          <h1>Student Registration Form</h1>
+          <p class="subtitle">Fill in the details below to register as a student.</p>
+        </div>
+        <div class="top-pill"><span class="status-dot"></span> Demo mode</div>
+      </header>
+
+      <section class="form-card" id="formCard">
+        <div class="card-heading">
+          <div class="heading-icon">✦</div>
+          <div>
+            <h2>Registration details</h2>
+            <p>Fields marked with <span class="required">*</span> are required.</p>
+          </div>
+        </div>
+
+        <form id="registrationForm">
+          <div class="form-row">
+            <label for="studentName">Name <span class="required">*</span></label>
+            <input id="studentName" name="studentName" type="text" placeholder="Enter your full name" autocomplete="name" required>
+          </div>
+          <div class="form-row">
+            <label for="email">Email <span class="required">*</span></label>
+            <input id="email" name="email" type="email" placeholder="example@gmail.com" autocomplete="email" required>
+          </div>
+          <fieldset class="form-row">
+            <legend>Gender <span class="required">*</span></legend>
+            <div class="choice-row">
+              <label class="choice"><input type="radio" name="gender" value="Male" required> <span>Male</span></label>
+              <label class="choice"><input type="radio" name="gender" value="Female"> <span>Female</span></label>
+              <label class="choice"><input type="radio" name="gender" value="Other"> <span>Other</span></label>
+            </div>
+          </fieldset>
+          <div class="form-row">
+            <label for="mobile">Mobile (10 digits) <span class="required">*</span></label>
+            <input id="mobile" name="mobile" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Enter 10 digit mobile number" required>
+            <small class="hint">Use exactly 10 digits.</small>
+          </div>
+          <div class="form-row">
+            <label for="dob">Date of Birth</label>
+            <input id="dob" name="dob" type="date">
+          </div>
+          <div class="form-row">
+            <label for="subjects">Subjects</label>
+            <input id="subjects" name="subjects" type="text" placeholder="e.g. Maths, Science">
+          </div>
+          <fieldset class="form-row">
+            <legend>Hobbies</legend>
+            <div class="choice-row">
+              <label class="choice"><input type="checkbox" name="hobbies" value="Sports"> <span>Sports</span></label>
+              <label class="choice"><input type="checkbox" name="hobbies" value="Reading"> <span>Reading</span></label>
+              <label class="choice"><input type="checkbox" name="hobbies" value="Music"> <span>Music</span></label>
+            </div>
+          </fieldset>
+          <div class="form-row">
+            <label for="picture">Picture</label>
+            <input id="picture" name="picture" type="file" accept="image/*">
+            <small class="hint" id="fileHint">Optional image upload; the file is not sent to a server.</small>
+          </div>
+          <div class="form-row align-start">
+            <label for="address">Current Address</label>
+            <textarea id="address" name="address" rows="3" placeholder="Enter your current address"></textarea>
+          </div>
+          <div class="location-row">
+            <div class="form-row">
+              <label for="state">State</label>
+              <select id="state" name="state">
+                <option value="">Choose State</option>
+                <option>Tamil Nadu</option>
+                <option>Puducherry</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Andhra Pradesh</option>
+                <option>Telangana</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="city">City</label>
+              <select id="city" name="city" disabled>
+                <option value="">Choose City</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="button button-secondary" type="reset">Reset form</button>
+            <button class="button button-primary" type="submit"><span>➤</span> Submit registration</button>
+          </div>
+        </form>
+        <div class="result-message hidden" id="resultMessage" role="status" aria-live="polite"></div>
+      </section>
+
+      <footer class="page-footer">StudentLab · Frontend demo for Selenium practice · No data is sent to a server</footer>
+    </main>
+  </div>
+
+  <div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
